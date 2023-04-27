@@ -10,13 +10,17 @@ const linkStyles = {
   color: "white",
 };
 
-function Navbar({ setIsLoggedIn }) {
+function Navbar({ onLogout }) {
   const history = useHistory();
-
-  function handleLogout() {
-    setIsLoggedIn(false);
-    history.push("/login");
+  function handleClick(){
+    onLogout()
+    history.push("/login")
   }
+
+  // function handleLogout() {
+  //   // setIsLoggedIn(false);
+  //   history.push("/login");
+  // }
 
   return (
     <div>
@@ -28,7 +32,7 @@ function Navbar({ setIsLoggedIn }) {
         style={linkStyles}
         /* add prop for activeStyle */
         activeStyle={{
-          background: "darkblue",
+          background: "brown",
         }}
       >
         Home
@@ -38,7 +42,7 @@ function Navbar({ setIsLoggedIn }) {
         exact
         style={linkStyles}
         activeStyle={{
-          background: "darkblue",
+          background: "brown",
         }}
       >
         About
@@ -48,12 +52,12 @@ function Navbar({ setIsLoggedIn }) {
         exact
         style={linkStyles}
         activeStyle={{
-          background: "darkblue",
+          background: "brown",
         }}
       >
         Login
       </NavLink>
-      <button onClick={handleLogout}>Logout</button>
+      <button onClick={handleClick}>Logout</button>
     </div>
   );
 }
